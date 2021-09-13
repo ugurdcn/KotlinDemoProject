@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data >
+        <variable
+            name="besin"
+            type="com.zeygame.demoMvvm2.model.Besin" />
+        <variable
+            name="clickListener"
+            type="com.zeygame.demoMvvm2.adapter.CustomClickListener" />
+    </data>
+
+    <LinearLayout
+        android:onClick="@{(view)->clickListener.onClick(view,besin.uuid)}"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(besin.uuid)}"
+            android:id="@+id/txUUID"
+            />
+
+        <ImageView
+            android:id="@+id/imgRowBesin"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:downloadImage="@{besin.besinGorsel}"
+            />
+        <LinearLayout
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:id="@+id/txRowIsim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{besin.besimIsim}"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:textSize="16sp"
+                android:layout_margin="5dp"
+                android:id="@+id/txRowKalori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{besin.besinKalori}"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>
